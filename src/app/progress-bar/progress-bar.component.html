@@ -1,0 +1,80 @@
+<div class="wrapper">
+    <div class="wrapper">
+      <input type="checkbox" class="k-checkbox" id="visible" [(ngModel)]="label.visible" />
+      <label class="k-checkbox-label" [attr.for]="'visible'">Toggle the label visibility</label>
+    </div>
+      <span>Position: </span>
+      <input type="radio" [(ngModel)]="label.position" value="start" name="position" id="position-start" class="k-radio">
+      <label class="k-radio-label" [attr.for]="'position-start'">Start</label>
+      <input type="radio" [(ngModel)]="label.position" value="center" name="position" id="position-center" class="k-radio">
+      <label class="k-radio-label" [attr.for]="'position-center'">Center</label>
+      <input type="radio" [(ngModel)]="label.position" value="end" name="position" id="position-end" class="k-radio">
+      <label class="k-radio-label" [attr.for]="'position-end'">End</label>
+  </div>
+  <kendo-progressbar
+      [value]="value1"
+      [label]="label"></kendo-progressbar>
+
+      <br/><br/>
+
+<div class="wrapper">
+    <div class="wrapper">
+      <span>State: {{reverse ? 'Reversed' : 'Default'}}</span>
+      <input type="checkbox" class="k-checkbox" id="reverse" [(ngModel)]="reverse" />
+      <label class="k-checkbox-label" [attr.for]="'reverse'">Toggle the reverse state</label>
+    </div>
+      <span>Orientation: </span>
+      <input type="radio" [(ngModel)]="orientation" value="horizontal" name="orientation" id="orientation-horizontal" class="k-radio">
+      <label class="k-radio-label" [attr.for]="'orientation-horizontal'">Horizontal</label>
+      <input type="radio" [(ngModel)]="orientation" value="vertical" name="orientation" id="orientation-vertical" class="k-radio">
+      <label class="k-radio-label" [attr.for]="'orientation-vertical'">Vertical</label>
+  </div>
+
+    <kendo-chunkprogressbar
+    [reverse]="reverse"
+    [orientation]="orientation"
+    [value]="value1"
+    ></kendo-chunkprogressbar>
+
+
+    <br/><br/>
+
+<div id="example">
+<div class="demo-section k-content">
+<h4>Profile Completeness: <span id="completed">{{completeness}}</span></h4>
+<kendo-chunkprogressbar
+    [value]="value"
+    [min]="min"
+    [max]="max"
+    [progressCssStyle]="progressStyle"
+    [emptyCssStyle]="emptyStyle"
+    [chunkCount]="chunks"></kendo-chunkprogressbar>
+    <form #profileForm="ngForm">
+        <ul class="forms">
+            <li>
+                <label>First Name</label>
+                <input type="text" name="firstName" [(ngModel)]="person.firstName" class="k-textbox" style="width: 100%;" />
+            </li>
+            <li>
+                <label>Last Name</label>
+                <input type="text" name="lastName" [(ngModel)]="person.lastName" class="k-textbox" style="width: 100%;" />
+            </li>
+            <li>
+                <label>Gender</label>
+                <kendo-dropdownlist
+                    [data]="genders"
+                    textField="text"
+                    valueField="value"
+                    [valuePrimitive]="true"
+                    [(ngModel)]="person.gender"
+                    [defaultItem]="{text: 'Select gender', value: null}"
+                    name="gender">
+                </kendo-dropdownlist>
+            </li>
+            <li>
+                <label>Occupation</label>
+                <input name="occupation" type="text" [(ngModel)]="person.occupation" class="k-textbox" style="width: 100%;" />
+            </li>
+        </ul>
+    </form>
+</div>

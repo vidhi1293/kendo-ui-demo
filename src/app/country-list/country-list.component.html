@@ -1,0 +1,38 @@
+<kendo-grid
+            [kendoGridBinding]="gridView"
+            kendoGridSelectBy="id"
+            [selectedKeys]="mySelection"
+            [pageSize]="10"
+            [pageable]="true"
+            [sortable]="true"
+            [groupable]="false"
+            [reorderable]="true"
+            [resizable]="true"
+            [height]="550"
+            
+        >
+            <ng-template kendoGridToolbarTemplate>
+                <input placeholder="Search in all columns..." kendoTextBox (input)="onFilter($event.target.value)"/>
+                <button kendoGridExcelCommand type="button" icon="file-excel" style="float:right;">Export to Excel</button>
+                <button kendoGridPDFCommand icon="file-pdf" style="float:right;">Export to PDF</button>
+            </ng-template>
+            <kendo-grid-checkbox-column
+                [width]="45"
+                [headerClass]="{'text-center': true}"
+                [class]="{'text-center': true}"
+                [resizable]="false"
+                [columnMenu]="false"
+                showSelectAll="false"
+            ></kendo-grid-checkbox-column>
+            <kendo-grid-column field="CountryName" title="Country Name" [width]="200">
+            </kendo-grid-column>
+            <kendo-grid-column field="CountryAbbreviation" title="Abbreviation" [width]="180">
+            </kendo-grid-column>            
+            <kendo-grid-column field="PhonePrefix" title="PhonePrefix" [width]="150">
+            </kendo-grid-column>
+            <kendo-grid-column field="IsActive" title="Active?" [width]="150">
+            </kendo-grid-column>
+
+            <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+            <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+        </kendo-grid>

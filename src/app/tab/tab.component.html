@@ -1,0 +1,78 @@
+<kendo-tabstrip [ngStyle]="{'width': '400px'}">
+    <kendo-tabstrip-tab
+      *ngFor="let item of items let i=index"
+      [title]="item.city"
+      [selected]="i == selected"
+      [disabled]="item.disabled"
+    >
+        <ng-template kendoTabContent>
+          <div class="weather">
+            <h4>{{item.temp}}<span>&ordm;C</span></h4>
+            <p>Weather in {{item.city}} is {{item.weather}}.</p>
+          </div>
+        </ng-template>
+    </kendo-tabstrip-tab>
+  </kendo-tabstrip>
+
+  <br/><br/>
+
+
+  <div style="margin: 10px">
+    <div class="card">
+        <div class="card-block k-form">
+            <fieldset>
+            <legend>Layout Settings</legend>
+            <div class="k-form-field">
+                <span>TabPosition</span>
+                <input type="radio" name="mode" id="left" value="left" class="k-radio"
+                    [(ngModel)]="position">
+                <label class="k-radio-label" for="left">Left</label>
+                <input type="radio" name="mode" id="right" value="right" class="k-radio"
+                    [(ngModel)]="position">
+                <label class="k-radio-label" for="right">Right</label>
+                <input type="radio" name="mode" id="top" value="top" class="k-radio"
+                    [(ngModel)]="position">
+                <label class="k-radio-label" for="top">Top</label>
+                <input type="radio" name="mode" id="bottom" value="bottom" class="k-radio"
+                    [(ngModel)]="position">
+                <label class="k-radio-label" for="bottom">Bottom</label>
+            </div>
+            </fieldset>
+        </div>
+    </div>
+  </div>
+
+  <kendo-tabstrip [tabPosition]="position">
+    <kendo-tabstrip-tab [title]="'Paris'" [selected]="true">
+      <ng-template kendoTabContent>
+        <div class="weather">
+          <h4>17<span>&ordm;C</span></h4>
+          <p>Rainy weather in Paris.</p>
+        </div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab [title]="'New York'">
+      <ng-template kendoTabContent>
+        <div class="weather">
+          <h4>29<span>&ordm;C</span></h4>
+          <p>Sunny weather in New York.</p>
+        </div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab [title]="'London'">
+      <ng-template kendoTabContent>
+        <div class="weather">
+          <h4>21<span>&ordm;C</span></h4>
+          <p>Sunny weather in London.</p>
+        </div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab [title]="'Moscow'">
+      <ng-template kendoTabContent>
+        <div class="weather">
+          <h4>16<span>&ordm;C</span></h4>
+          <p>Cloudy weather in Moscow.</p>
+        </div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  </kendo-tabstrip>

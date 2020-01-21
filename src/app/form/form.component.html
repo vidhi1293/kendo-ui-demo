@@ -1,0 +1,149 @@
+<h3>Kendo UI Demo Form</h3>
+
+<form class="form-validate" role="form" #countryForm="ngForm" (ngSubmit)="addUpdate(countryForm)">
+    <div class="col-md-6 col-sm-12">
+        <label>Text Box &nbsp;&nbsp;</label>
+        <input type="text" kendoTextBox [(ngModel)]="DemoEntity.Text" #Text="ngModel" name="Text" pattern="[a-zA-Z\-.()',]+[a-zA-Z\-.()',\s]{2,}" maxlength="50" required/>
+        <span *ngIf="(Text.dirty && Text.invalid) || (Text.pristine && submitted)">
+            <span class="error_span error"
+              *ngIf="Text.errors.required || (Text.pristine && submitted)">Please enter a text</span>
+            <span class="error_span error"
+              *ngIf="Text.errors && Text.errors.pattern">Please enter a valid text</span>
+        </span>
+    </div>  
+
+    <div class="col-md-6 col-sm-12">
+      <label>Text Area &nbsp;&nbsp;</label>
+      <textarea kendoTextArea [(ngModel)]="DemoEntity.TextArea" #TextArea="ngModel" name="TextArea"></textarea>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <label>Checkbox &nbsp;&nbsp;</label>
+        <input type="checkbox" kendoCheckBox [(ngModel)]="DemoEntity.Checkbox1" #Checkbox1="ngModel" name="Checkbox1" value="checkbox1" /> <label> &nbsp; Checkbox1 &nbsp;&nbsp;</label>
+        <input type="checkbox" kendoCheckBox [(ngModel)]="DemoEntity.Checkbox2" #Checkbox2="ngModel" name="Checkbox2" value="checkbox2" /><label> &nbsp; Checkbox2 &nbsp;&nbsp;</label>
+        <input type="checkbox" kendoCheckBox [(ngModel)]="DemoEntity.Checkbox3" #Checkbox3="ngModel" name="Checkbox3" value="checkbox3" />  <label> &nbsp; Checkbox3 &nbsp;&nbsp;</label>          
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <label>Radio &nbsp;&nbsp;</label>
+        <input type="radio" name="Radio" value="radio1" [(ngModel)]="DemoEntity.Radio" #Radio="ngModel" kendoRadioButton />
+        <label> &nbsp; Radio1 &nbsp;&nbsp;</label>
+        <input type="radio" name="Radio" value="radio2" [(ngModel)]="DemoEntity.Radio" #Radio="ngModel" kendoRadioButton />
+        <label> &nbsp; Radio2 &nbsp;&nbsp;</label>
+        <input type="radio" name="Radio" value="radio3" [(ngModel)]="DemoEntity.Radio" #Radio="ngModel" kendoRadioButton />
+        <label> &nbsp; Radio3 &nbsp;&nbsp;</label>        
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <label>Dropdown &nbsp;&nbsp;</label>
+      <kendo-dropdownlist [data]="listItems" [(ngModel)]="DemoEntity.Dropdown" #Dropdown="ngModel" name="Dropdown" ></kendo-dropdownlist>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <label>Dropdown with Filter &nbsp;&nbsp;</label>
+      <kendo-dropdownlist
+      [data]="data"
+      [filterable]="true"
+      [textField]="'name'"
+      [valueField]="'id'"
+      [valuePrimitive]="true"
+      (filterChange)="handleFilter($event)" [(ngModel)]="DemoEntity.FilterDropdown" #FilterDropdown="ngModel" name="FilterDropdown" required
+      ></kendo-dropdownlist>
+      <span *ngIf="(FilterDropdown.dirty && FilterDropdown.invalid) || (FilterDropdown.pristine && submitted)">
+          <span class="error_span error"
+            *ngIf="FilterDropdown.errors.required || (FilterDropdown.pristine && submitted)">Please select a value</span>
+      </span>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <label>Dropdown with Grouping &nbsp;&nbsp;</label>
+        <kendo-dropdownlist
+        [data]="groupedData"
+        [textField]="'name'" [valuePrimitive]="true"
+        [valueField]="'cid'" [(ngModel)]="DemoEntity.GroupDropdown" #GroupDropdown="ngModel" name="GroupDropdown">
+        </kendo-dropdownlist>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <label>MultiSelect Dropdown &nbsp;&nbsp;</label>
+      <kendo-multiselect [data]="listItems" [(ngModel)]="DemoEntity.MultiDropdown" #MultiDropdown="ngModel" name="MultiDropdown"></kendo-multiselect>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <label>MultiSelect Dropdown with Filter &nbsp;&nbsp;</label>
+      <kendo-multiselect
+      #list
+      [data]="data2"
+      [filterable]="true"
+      textField="CountryName"
+      valueField="CountryId" [valuePrimitive]="true"
+      placeholder="Country" [(ngModel)]="DemoEntity.MulFilDropdown" #MulFilDropdown="ngModel" name="MulFilDropdown"> 
+      </kendo-multiselect>
+    </div>
+
+    <br/>
+    <div class="col-md-6 col-sm-12">
+      <label>Date Picker &nbsp;&nbsp;</label>
+      <kendo-datepicker [focusedDate]="focusedDate" [(ngModel)]="DemoEntity.SelectedDate" #SelectedDate="ngModel" name="SelectedDate"></kendo-datepicker>
+    </div>
+
+    <br/>
+    <div class="col-md-6 col-sm-12">
+      <label>Cascading DropDown &nbsp;&nbsp;</label>
+      <div class="row">
+          <div class="col-xs-12 col-sm-4 example-col">
+              <p>Category:</p>
+              <kendo-dropdownlist
+                  [data]="dataCategory"
+                  [value]="selectedCategory"
+                  [defaultItem]="defaultItemCategories"
+                  [textField]="'categoryName'"
+                  [valueField]="'categoryId'"
+                  (valueChange)="handleCategoryChange($event)" 
+                  [valuePrimitive]="true"
+                  [(ngModel)]="DemoEntity.Category" #Category="ngModel" name="Category"
+              >
+              </kendo-dropdownlist>
+          </div>
+          <div class="col-xs-12 col-sm-4 example-col">
+              <p>Product:</p>
+              <kendo-dropdownlist
+                  [disabled]="isDisabledProducts"
+                  [defaultItem]="defaultItemProducts"
+                  [data]="dataResultProducts"
+                  [value]="selectedProduct"
+                  [textField]="'productName'"
+                  [valueField]="'productId'"
+                  (valueChange)="handleProductChange($event)"
+                  [valuePrimitive]="true"
+                  [(ngModel)]="DemoEntity.Product" #Product="ngModel" name="Product"
+              >
+              </kendo-dropdownlist>
+          </div>
+          <div class="col-xs-12 col-sm-4 example-col">
+              <p>Order:</p>
+              <kendo-dropdownlist
+                  [disabled]="isDisabledOrders"
+                  [defaultItem]="defaultItemOrders"
+                  [data]="dataResultOrders"
+                  [value]="selectedOrder"
+                  [textField]="'orderName'"
+                  [valueField]="'orderId'"
+                  (valueChange)="handleOrderChange($event)"
+                  [valuePrimitive]="true"
+                  [(ngModel)]="DemoEntity.Order" #Order="ngModel" name="Order"
+              >
+              </kendo-dropdownlist>
+          </div>
+      </div>  
+    </div>
+
+    <div class="col-md-12 col-sm-12">
+      <button kendoButton [primary]="true" class="theme_btn mt-3" type="submit" [disabled]="btn_disable">
+        Submit
+      </button>
+    </div>
+
+    {{ DemoEntity | json }}
+
+</form>
