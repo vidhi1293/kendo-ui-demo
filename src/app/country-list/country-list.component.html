@@ -1,4 +1,7 @@
-<kendo-grid
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-12 col-lg-12">
+            <kendo-grid
             [kendoGridBinding]="gridView"
             kendoGridSelectBy="id"
             [selectedKeys]="mySelection"
@@ -36,3 +39,5 @@
             <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
             <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
         </kendo-grid>
+        </div>
+    </div></div>
