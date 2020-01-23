@@ -2,9 +2,7 @@
   <div class="row justify-content-md-center">
     <div class="col-md-12 col-8 col-lg-8">
       <h2>Kendo UI Demo Form</h2>
-
       <form class="form-validate" role="form" #countryForm="ngForm" (ngSubmit)="addUpdate(countryForm)">
-
         <div class="form-group">
           <label>Text Box</label>
           <input type="text" kendoTextBox [(ngModel)]="DemoEntity.Text" #Text="ngModel" name="Text"
@@ -15,7 +13,6 @@
             <span class="error_span error" *ngIf="Text.errors && Text.errors.pattern">Please enter a valid text</span>
           </span>
         </div>
-
         <div class="form-group">
           <label>Text Area</label>
           <textarea kendoTextArea [(ngModel)]="DemoEntity.TextArea" #TextArea="ngModel" name="TextArea"></textarea>
@@ -40,6 +37,10 @@
           <input type="radio" id="radio3" name="Radio" value="radio3" [(ngModel)]="DemoEntity.Radio" #Radio="ngModel"
             kendoRadioButton />
           <label for="radio3">Radio3</label>
+        </div>
+        <div class="form-group">
+          <label>Toggle</label>
+          <kendo-switch [(ngModel)]="DemoEntity.Toggle" #Toggle="ngModel" name="Toggle"></kendo-switch>
         </div>
         <div class="form-group">
           <label>Dropdown</label>

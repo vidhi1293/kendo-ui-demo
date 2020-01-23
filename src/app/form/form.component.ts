@@ -59,6 +59,7 @@ export class FormComponent implements OnInit {
     this.source2 = [];
     this.DemoEntity.SelectedDate = new Date();
     this.DemoEntity.productId = 2;
+    this.DemoEntity.Toggle = true;
     
     this.CommonService.getAll()
     .then((data) => {
