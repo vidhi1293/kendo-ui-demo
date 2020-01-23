@@ -35,6 +35,11 @@
     </div>
 
     <div class="col-md-6 col-sm-12">
+        <label>Toggle &nbsp;&nbsp;</label>
+        <kendo-switch [(ngModel)]="DemoEntity.Toggle" #Toggle="ngModel" name="Toggle"></kendo-switch>
+      </div>
+
+    <div class="col-md-6 col-sm-12">
       <label>Dropdown &nbsp;&nbsp;</label>
       <kendo-dropdownlist [data]="listItems" [(ngModel)]="DemoEntity.Dropdown" #Dropdown="ngModel" name="Dropdown" ></kendo-dropdownlist>
     </div>
