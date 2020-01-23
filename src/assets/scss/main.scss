@@ -1,0 +1,96 @@
+/*--- Links --- */
+@import "fonts";
+@import "colors";
+@import "numbers";
+:root {
+    --screen-height:500px;
+    --login-screen-height :500px;
+ }
+/*--- End Links --- */
+
+/*--- Common Css --- */
+      app-root { display: block; box-sizing: border-box; padding: 30px; }
+      app-root > .k-icon.k-i-loading { font-size: 64px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+      .example-wrapper { min-height: 280px; align-content: flex-start; }
+      .example-wrapper p, .example-col p { margin: 0 0 10px; }
+      .example-wrapper p:first-child, .example-col p:first-child { margin-top: 0; }
+      .example-col { display: inline-block; vertical-align: top; padding-right: 20px; padding-bottom: 20px; }
+      .example-config { margin: 0 0 20px; padding: 20px; background-color: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.08); }
+      .event-log { margin: 0; padding: 0; max-height: 100px; overflow-y: auto; list-style-type: none; border: 1px solid rgba(0,0,0,.08); background-color: #fff; }
+      .event-log li {margin: 0; padding: .3em; line-height: 1.2em; border-bottom: 1px solid rgba(0,0,0,.08); }
+      .event-log li:last-child { margin-bottom: -1px;}
+
+html{height:$width100per; min-height:$width100per;}
+body{margin:$number0; padding: $number0; background:$white; overflow-x: hidden; height:auto; min-height:$width100per; font-family: $fontfamily; font-size:$fontsize; font-weight: $fontweightregular; }
+body.overflow_body{overflow:hidden;}
+app-root, admin-root { display: block; height: $width100per; min-height: $width100per;}
+p{margin:$number0; padding:$number0; line-height:$number22; color:$darkgrey; font-size: $fontsize;}
+p.padding_15{padding-bottom:$number15;}
+p.padding_30{padding-bottom:$number30;}
+.no_padding{padding:$number0!important;}
+.clear,.clearfix {clear:both;}
+button,button:focus,a{outline: none!important; cursor: pointer;}
+button[disabled]{opacity: 0.4!important;}
+a {
+    text-decoration:none; color:$thememaincolor; cursor: pointer; outline: none;
+    &:hover, &:focus 
+    {
+        text-decoration:none; color:$black;
+    }
+}
+ul {list-style:none; padding: $number0; margin: $number0;}
+li {list-style:none;}
+b,strong { font-family: $fontfamily; font-weight: $fontweightbold; margin-right: $number5;}
+h1{ font-family:$fontfamily; font-weight: $fontweightbold; font-size: $number25; line-height: $number25; margin:0 0 $number15 0; color:$darkgrey; text-transform:none;}
+h2{ font-family:$fontfamily; font-weight: $fontweightregular; font-size: $number22; line-height: $number22; margin:0 0 $number15 0; color:$thememaincolor;}
+h3{ font-family:$fontfamily; font-weight: $fontweightregular; font-size: $number25; line-height: $number25; margin:0 0 $number15 0; color:$thememaincolor;}
+h4{ font-family:$fontfamily; font-weight: $fontweightbold; font-size: $number18; line-height: $number18; margin:0 0 $number15 0; color:$darkgrey;}
+h5{ font-family:$fontfamily; font-weight: $fontweightregular; font-size: $number18; line-height: $number18; margin:0 0 $number10 0; color:$thememaincolor;}
+h6{ font-family:$fontfamily; font-weight: $fontweightbold; font-size: $number15; line-height: $number15; margin:0 0 $number10 0; color:$thememaincolor;}
+
+/*--- End Common Css --- */
+
+/*--- Header --- */
+
+/*--- End Header --- */
+
+/*--- Footer --- */
+
+/*--- End Footer --- */
+
+/*--- Form --- */
+.form-group{position: relative; margin-bottom:$number30;
+    label{font-size: $fontsize; font-family: $fontfamily; display: block; margin:$number0; padding:$number0; line-height:$number30; color:$darkgrey;
+        span{color: $red;}
+    }
+}
+input[type='text'],input[type='number'],input[type='date'],input[type='file'], textarea,kendo-dropdownlist
+{
+    line-height:$fontsize!important; color: $darkgrey!important; font-size: $fontsize!important; font-weight:normal!important; height:$number35!important; border: $number1 solid $lightgrey!important; background: transparent!important; width: $width100per!important;
+    &:focus{box-shadow: none!important; border-color: $thememaincolor!important; background: transparent!important;  }
+    &:disabled, &[readonly]{background: rgba($color: $black, $alpha: 0.01) !important; cursor: not-allowed!important;}
+}
+textarea{resize:none; height: $number80!important;}
+input.ng-invalid, textarea.ng-invalid, kendo-dropdownlist.ng-invalid{border-color: $red!important;}
+.error_span{color: $red; font-size: $number12; position: absolute; bottom: -$number25; left: $number0; width: $width100per; line-height: $number22; height: $number23;}
+input:-webkit-autofill,textarea:-webkit-autofill,kendo-dropdownlist:-webkit-autofill,input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, kendo-dropdownlist:-webkit-autofill:hover, kendo-dropdownlist:-webkit-autofill:focus{ 
+    border:$number1 solid $lightgrey;
+    -webkit-text-fill-color:$darkgrey;
+    -webkit-box-shadow:none;
+    transition: background-color 5000s ease-in-out 0s;
+    background: transparent;
+}
+.checkbox_block,.radio_block{
+    label{display: inline-block; margin-right: $number15;}
+    input[type='checkbox'],input[type='radio']{margin-right: $number7;}
+}
+.all_btn{
+    cursor:pointer; font-size:$fontsize; line-height: $fontsize; text-align: center; padding: $number10; box-shadow: none; position: relative; transition:all 0.3s ease 0s; display:inline-block; border-radius: $number5; min-width: $number75; vertical-align: top; margin: $number0 $number3;
+    &:hover{
+        box-shadow: $number0 $number3 $number15 $number0 rgba($color: $black, $alpha: 0.3); transition:all 0.5s ease 0s; color: $white;
+    }
+}
+.theme_btn{background:$thememaincolor; color: $white!important; border: $number1 solid $thememaincolor;}
+.red_btn{background:$red; color: $white!important; border: $number1 solid $red;}
+.themeoption_btn{background:$darkgrey; color: $white!important; border: $number1 solid $darkgrey;}
+/*--- End Form --- */
