@@ -9,7 +9,7 @@ export class CommonService {
 
   getAll() {
     let promise = new Promise((resolve, reject) => {
-      this.http.get('http://moe-website-api.devbyopeneyes.com/Common/Country/getAll/' + 2) // 1-Active, 2-All
+      this.http.get('http://moe-website-api.devbyopeneyes.com/Common/Country/getAll/' + 3) // 1-Active, 2-All
         .toPromise()
         .then(
           res => { // Success
@@ -22,6 +22,25 @@ export class CommonService {
     });
     return promise;
   }
+
+  isActiveChange(activeEntity) {
+    
+    let promise = new Promise((resolve, reject) => {
+      this.http.post('http://moe-website-api.devbyopeneyes.com/Common/isActiveChange', activeEntity)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve(res);
+          },
+          msg => { // Error
+            reject(msg);
+          }
+        );
+    });
+    return promise;
+  }
+
+  
 
   
 }

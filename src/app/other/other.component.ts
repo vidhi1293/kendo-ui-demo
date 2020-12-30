@@ -40,8 +40,8 @@ export class OtherComponent implements OnInit {
         this.close();
     }
 
-  private toggleText: string = "Show";
-  private show: boolean = false;
+  public toggleText: string = "Show";
+  public show: boolean = false;
 
   public onToggle(): void {
       this.show = !this.show;

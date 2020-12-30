@@ -60,14 +60,14 @@ export class GridComponent implements OnInit {
         this.dataBinding.skip = 0;
     }
 
-    private photoURL(dataItem: any): string {
+    public photoURL(dataItem: any): string {
         const code: string = dataItem.img_id + dataItem.gender;
         const image: any = images;
 
         return image[code];
     }
 
-    private flagURL(dataItem: any): string {
+    public flagURL(dataItem: any): string {
         const code: string = dataItem.country;
         const image: any = images;
 

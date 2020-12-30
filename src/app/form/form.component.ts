@@ -17,8 +17,10 @@ export class FormComponent implements OnInit {
   submitted;
   btn_disable;
 
-  public listItems: Array<string> = [ "Small", "Medium", "Large" ];
+  public range = { start: null, end: null };
 
+  public listItems: Array<string> = [ "Small", "Medium", "Large" ];
+  public format: string = 'MM/dd/yyyy HH:mm';
   public source: Array<{ name: string, id: number }> = [
     { name: "Small", id: 1 },
     { name: "Medium", id: 2 },
@@ -57,9 +59,12 @@ export class FormComponent implements OnInit {
     this.DemoEntity = {};
     this.data2 = [];
     this.source2 = [];
-    this.DemoEntity.SelectedDate = new Date();
+    //this.DemoEntity.SelectedDate = new Date();
     this.DemoEntity.productId = 2;
     this.DemoEntity.Toggle = true;
+    this.DemoEntity.SelectedDate = new Date('2020-03-23 18:30:00.000');
+    this.DemoEntity.TextArea = 'demo text';
+    this.DemoEntity.SelectedDateTime = new Date('2020-03-23 18:30:00.000');
     
     this.CommonService.getAll()
     .then((data) => {
@@ -143,6 +148,7 @@ export class FormComponent implements OnInit {
   public selectedOrder: { orderName: string, orderId: number};
 
   handleCategoryChange(value) {
+    alert(value);
     this.selectedCategory = value;
     this.selectedProduct = undefined;
     this.selectedOrder = undefined;

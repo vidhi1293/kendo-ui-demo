@@ -62,4 +62,33 @@ export class CountryListComponent implements OnInit {
       this.dataBinding.skip = 0;
   }
 
+  isActiveChange(activeEntity, i) { debugger
+alert('dfgd');
+    if (this.gridView[i].IsActive == 1) {
+      this.gridView[i].IsActive = 0;
+      activeEntity.IsActive = 0;
+    } else {
+      this.gridView[i].IsActive = 1;
+      activeEntity.IsActive = 1;
+    }
+
+    activeEntity.Id = activeEntity.CountryId;
+    activeEntity.UpdatedBy = 1;
+    activeEntity.TableName = 'tblmstcountry';
+    activeEntity.FieldName = 'CountryId';
+    activeEntity.Module = 'Country';
+    activeEntity.ModuleId = 1;
+
+    this.CommonService.isActiveChange(activeEntity)
+      .then((data) => {
+        if (activeEntity.IsActive == 0) {
+         
+        } else {
+          
+        }
+      },
+        (error) => {
+        });
+  }
+
 }

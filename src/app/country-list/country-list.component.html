@@ -34,6 +34,22 @@
             <kendo-grid-column field="PhonePrefix" title="PhonePrefix" [width]="150">
             </kendo-grid-column>
             <kendo-grid-column field="IsActive" title="Active?" [width]="150">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                    {{dataItem.IsActive}} 
+                    <kendo-switch (click)="isActiveChange(dataItem,rowIndex)" [checked]="dataItem.IsActive==1"
+                    [checked]="false" 
+                    [onLabel]="'Y'"
+                    [offLabel]="'N'"
+                    [disabled]="false"></kendo-switch>
+                    <!-- <input type="checkbox" name="active_checkbox{{i}}" id="active_checkbox{{i}}"
+                        (change)="isActiveChange(dataItem,rowIndex)" [checked]="dataItem.IsActive==1" value="Yes">
+                      <label for="active_checkbox{{i}}"></label> -->
+                </ng-template>
+                
+                <!-- <input type="checkbox" name="active_checkbox{{i}}" id="active_checkbox{{i}}"
+                 [checked]="country.IsActive==1" value="Yes">
+                <label for="active_checkbox{{i}}"></label>     -->
+                
             </kendo-grid-column>
 
             <!-- <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf> -->
@@ -68,7 +84,7 @@
                 </ng-template>
             </kendo-grid-excel> -->
 
-            <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+            <kendo-grid-excel fileName="Employees.xlsx" ></kendo-grid-excel>
         </kendo-grid>
         </div>
     </div></div>
